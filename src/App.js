@@ -7,15 +7,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      showImage: true,
+      changeTheme: true,
       showProfile: true,
     };
   }
   handleClick = (e) => {
-    if (this.state.showImage === true) {
-      this.setState({ showImage: false });
+    if (this.state.changeTheme) {
+      this.setState({ changeTheme: false });
     } else {
-      this.setState({ showImage: true });
+      this.setState({ changeTheme: true });
     }
   };
   handleClickProfile = (e) => {
@@ -26,19 +26,20 @@ class App extends Component {
     }
   };
   render() {
-    const Condition = this.state.showImage;
-    const showProfile = this.state.showProfile;
+    const { changeTheme, showProfile } = this.state;
+    const { handleClick, handleClickProfile } = this;
+
     return showProfile ? (
-      <div className={Condition ? "App" : "App2"}>
+      <div className={changeTheme ? "App" : "App2"}>
         <WebPage
-          onclick={this.handleClick}
-          condition={Condition}
-          onshow={(e) => this.handleClickProfile(e)}
+          onclick={handleClick}
+          onshow={(e) => handleClickProfile(e)}
+          changeTheme={changeTheme}
         />
       </div>
     ) : (
       <div className="profile">
-        <MyProfile onshow={(e) => this.handleClickProfile(e)} />
+        <MyProfile onshow={(e) => handleClickProfile(e)} />
       </div>
     );
   }

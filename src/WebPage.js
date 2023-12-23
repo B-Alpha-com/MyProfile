@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./WebPage.css";
 import { faLightbulb } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import mypics from "./Asset/mypics.jpeg";
+import mypics from "./Asset/IMG_4.PNG";
 
-const WebPage = ({ theme, onclick, condition, onshow }) => {
+const WebPage = ({ onclick, onshow, changeTheme }) => {
+  let themeText = "Dark Mode";
+  if (!changeTheme) {
+    themeText = "Color Mode";
+  }
+  const [text, setText] = useState("");
+  let note = "You are welcome to my Page";
+  let i = 0;
+  let welcomeNote = "";
+  useEffect(() => {
+    setInterval(() => {
+      if (i < note.length) {
+        welcomeNote += note[i];
+        setText(welcomeNote);
+        i++;
+      } else {
+        return;
+      }
+    }, 1000);
+  }, [i, welcomeNote]);
+
   return (
     <div className="container">
       <div className="li_Div">
-        <ul className="Ul">
+        <ul className="ul">
           <li className="mo">MO</li>
           <li>
             <i>
@@ -18,15 +38,13 @@ const WebPage = ({ theme, onclick, condition, onshow }) => {
                 style={{ color: "white" }}
                 icon={faLightbulb}
               />
-              <span className="clickme">Click me</span>
+              <span className="clickme">{themeText}</span>
             </i>
           </li>
         </ul>
       </div>
-      <div>
-        <div className="welcomeNote-Div">
-          <p className="welcomeNote">You are welcome to my Page</p>
-        </div>
+      <div className="welcomeText-div">
+        <p className="welcomeText">{text}</p>
       </div>
       <div className="div_2">
         <div className="name_Div">
@@ -42,14 +60,14 @@ const WebPage = ({ theme, onclick, condition, onshow }) => {
             <p className="a" onClick={onshow}>
               My Profile
             </p>
-            <a className="b" href="https://twitter.com/OlasodeM">
-              Twitter
-            </a>
             <a className="c" href="https://github.com/B-Alpha-com">
               Github
             </a>
-            <a className="d" href="www.twitter.com">
-              BlogPost
+            <a className="c" href="https://github.com/mubarakolasode">
+              Github2
+            </a>
+            <a className="b" href="https://twitter.com/OlasodeM">
+              Twitter
             </a>
             <a className="e" href="www.twitter.com">
               Instagram
