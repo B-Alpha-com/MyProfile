@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./WebPage.css";
 import { faLightbulb } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,22 +9,6 @@ const WebPage = ({ onclick, onshow, changeTheme }) => {
   if (!changeTheme) {
     themeText = "Color Mode";
   }
-  const [text, setText] = useState("");
-  let note = "You are welcome to my Page";
-  let i = 0;
-  let welcomeNote = "";
-  useEffect(() => {
-    setInterval(() => {
-      if (i < note.length) {
-        welcomeNote += note[i];
-        setText(welcomeNote);
-        i++;
-      } else {
-        return;
-      }
-    }, 1000);
-  }, [i, welcomeNote]);
-
   return (
     <div className="container">
       <div className="li_Div">
@@ -44,7 +28,7 @@ const WebPage = ({ onclick, onshow, changeTheme }) => {
         </ul>
       </div>
       <div className="welcomeText-div">
-        <p className="welcomeText">{text}</p>
+        <p className="welcomeText">You are welcome to my Page</p>
       </div>
       <div className="div_2">
         <div className="name_Div">

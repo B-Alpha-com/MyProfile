@@ -1,5 +1,5 @@
 {
-  "homepage": "https://mubarakolasode.github.io/my-profile",
+  "homepage": "https://b-alpha-com.github.io/myprofile",
   "name": "my-profile",
   "version": "0.1.0",
   "private": true,
@@ -42,8 +42,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "plugins": "@babel/plugin-proposal-private-property-in-object"
   }
 }
